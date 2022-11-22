@@ -59,3 +59,37 @@ alter table pozicija add foreign key (igrac) references igrac(sifra);
 alter table igrac add foreign key (trener) references trener(sifra);
 alter table tim add foreign key (utakmica) references utakmica(sifra);
 
+# najlosija 1
+insert  into liga 
+values (null,'Premier Liga');
+
+# malo bolja
+insert into liga (sifra,naziv)
+values (null,'Seria A');
+
+# najbolja
+insert into liga (sifra,naziv)
+values (null,'Ligue 1');
+
+
+
+insert into utakmica (sifra,vrijemepocetka)
+values (null,'2022-10-10 10:00:00');
+
+
+
+insert into tim (sifra,naziv,utakmica,liga)
+values (null,'Arsenal',2,1);
+
+
+insert into trener (sifra,ime,prezime,tim)
+values (null,'Marko','Mijatovic',4);
+
+
+insert into igrac (sifra,ime,prezime,tim,trener)
+values (null,'Pero','Peric',1,1);
+
+
+insert into pozicija (sifra,naziv,igrac)
+values (null,'napadac',6);
+
