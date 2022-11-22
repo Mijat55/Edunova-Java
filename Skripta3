@@ -14,3 +14,12 @@ create table opcina(
 );
 
 alter table opcina add foreign key (zupanija) references zupanija(sifra);
+
+
+insert into zupanija(sifra,naziv)
+values (null,'vukovarskosrijemska');
+
+
+
+insert into opcina (sifra,zupanija,naziv)
+values (null,1,'vukovar');
