@@ -23,8 +23,7 @@ izlozba int not null
 create table djelo(
 sifra int not null primary key auto_increment,
 naziv varchar(15) not null,
-stil varchar(15) not null,
-datumizrade datetime
+stil varchar(15) not null
 
 );
 
@@ -57,8 +56,8 @@ values (null,'Povijest','Galerija');
 
 
 
-insert into djelo (sifra,naziv,stil,datumizrade)
-values (null,'revolucija','renesansa','1800-10-10');
+insert into djelo (sifra,naziv,stil)
+values (null,'revolucija','renesansa');
 
 
 
