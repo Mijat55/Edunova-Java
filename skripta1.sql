@@ -27,7 +27,6 @@ alter table sudionik add foreign key (projekt) references projekt(sifra);
 
 
 
-
 insert into projekt (sifra,naziv,datumpocetka)
 values (null,'Programiranje','2022-01-01 12:00:00');
 
