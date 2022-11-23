@@ -5,9 +5,9 @@ use edunovajp28;
 
 create table skupina(
     sifra int not null primary key,
-    naziv varchar(20),
+    naziv varchar(20) not null,
     maksimalanbrojpolaznika int,
-    vrijemepolaska datetime
+    vrijemepolaska datetime not null
 );
 
 create table djeca(
@@ -15,36 +15,36 @@ create table djeca(
     oib varchar(11),
     spol varchar(10),
     datumrodjednja datetime,
-    osoba int
+    osoba int not null
 );
 
 create table strucnasprema(
     sifra int not null primary key,
-    naziv varchar(20),
+    naziv varchar(20) not null,
     datum int,
     ocijena decimal(18,2),
-    odgajateljica int
+    odgajateljica int not null
 );
 
 create table odgajateljica(
     sifra int not null primary key,
     iskustvo varchar(20),
     oib varchar(11),
-    osoba int,
-    strucnasprema int
+    osoba int not null,
+    strucnasprema int not null
 );
 
 create table osoba(
     sifra int not null primary key,
-    ime varchar(20),
-    prezime varchar(20),
-    djeca int, 
-    odgajateljica int
+    ime varchar(20) not null,
+    prezime varchar(20) not null,
+    djeca int not null, 
+    odgajateljica int not null
 );
 
 create table clan(
-    skupina int,
-    djeca int
+    skupina int not null,
+    djeca int not null
 );
 
 
