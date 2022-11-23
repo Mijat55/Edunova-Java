@@ -53,7 +53,6 @@ alter table autor add foreign key (izlozba) references izlozba(sifra);
 
 
 
-
 insert  into izlozba (sifra,naziv,datumodrzavanja,vrsta)
 values (null,'Povijest','2022-10-10 10:00:00','Galerija');
 
