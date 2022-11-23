@@ -1,3 +1,4 @@
+
 #c:\xampp\mysql\bin\mysql -uroot<C:\Users\Marko\Downloads\edunovajp28\skripta1.sql
 drop database if exists firma;
 create database firma;

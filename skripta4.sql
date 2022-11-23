@@ -1,56 +1,56 @@
+# c:\xampp\mysql\bin\mysql -uroot<C:\Users\Marko\Downloads\edunovajp28\skripta4.sql
 
 drop database if exists nogomet;
 create database nogomet;
 use nogomet;
 
 create table liga(
-    sifra int not null primary key,
-    naziv varchar(20)
+    sifra int not null primary key auto_increment,
+    naziv varchar(20) not null
     
 );
 
 create table tim(
-    sifra int not null primary key,
-    naziv varchar(20),
+    sifra int not null primary key auto_increment,
+    naziv varchar(20) not null,
     stadion int,
     maksimalanbrojnavijaca decimal(18,2),
-    utakmica int,
-    liga int
+    utakmica int not null,
+    liga int not null
 );
 
 create table utakmica(
-    sifra int not null primary key,
-    maksimalnovrijemetrajanja decimal(18,2),
-    vrijemepocetka datetime,
+    sifra int not null primary key auto_increment,
+    vrijemepocetka datetime not null,
     vrijeme varchar(10),
     maksimalanbrojigraca int
 
 );
 
 create table igrac(
-    sifra int not null primary key,
-    ime varchar(10),
-    prezime varchar (15),
+    sifra int not null primary key auto_increment,
+    ime varchar(10) not null,
+    prezime varchar (15) not null,
     datumrodjenja datetime,
     oib varchar(11),
-    maksimalanbrojminutaigranja decimal(18,2),
-    tim int,
-    trener int
+    minutaigranja decimal(18,2),
+    tim int not null,
+    trener int not null
 );
 
 create table trener(
-    sifra int not null primary key,
-    ime varchar(10),
-    prezime varchar(15),
+    sifra int not null primary key auto_increment,
+    ime varchar(10) not null,
+    prezime varchar(15) not null,
     oib varchar(11),
     licenca boolean,
     tim int
 );
 
 create table pozicija(
-    naziv varchar(20),
-    primarnanoga varchar(10),
-    igrac int
+    sifra int not null primary key auto_increment,
+    naziv varchar(20) not null,
+    igrac int not null
 );
 
 alter table tim add foreign key (liga) references liga(sifra);
@@ -58,6 +58,8 @@ alter table igrac add foreign key (tim) references tim(sifra);
 alter table pozicija add foreign key (igrac) references igrac(sifra);
 alter table igrac add foreign key (trener) references trener(sifra);
 alter table tim add foreign key (utakmica) references utakmica(sifra);
+
+
 
 # najlosija 1
 insert  into liga 
@@ -70,6 +72,8 @@ values (null,'Seria A');
 # najbolja
 insert into liga (sifra,naziv)
 values (null,'Ligue 1');
+
+
 
 insert into utakmica (sifra,vrijemepocetka)
 values (null,'2022-10-10 10:00:00');
