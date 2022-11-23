@@ -71,23 +71,21 @@ values (null,'Seria A');
 insert into liga (sifra,naziv)
 values (null,'Ligue 1');
 
-
-
 insert into utakmica (sifra,vrijemepocetka)
 values (null,'2022-10-10 10:00:00');
 
 
 
-insert into tim (sifra,naziv,utakmica,liga)
-values (null,'Arsenal',2,1);
+insert into tim (sifra,naziv,utakmica,liga,maksimalanbrojnavijaca,stadion)
+values (null,'Arsenal',2,1,20.200,'Santiago');
 
 
-insert into trener (sifra,ime,prezime,tim)
-values (null,'Marko','Mijatovic',4);
+insert into trener (sifra,ime,prezime,tim,oib,licenca)
+values (null,'Marko','Mijatovic',4,'12345678912',true);
 
 
-insert into igrac (sifra,ime,prezime,tim,trener)
-values (null,'Pero','Peric',1,1);
+insert into igrac (sifra,ime,prezime,tim,trener,datumrodjenja,oib,minutaigranja)
+values (null,'Pero','Peric',1,1,'1990-15-09','98765432198',65.30);
 
 
 insert into pozicija (sifra,naziv,igrac)
