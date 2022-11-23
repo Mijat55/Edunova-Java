@@ -79,7 +79,6 @@ insert into utakmica (sifra,vrijemepocetka)
 values (null,'2022-10-10 10:00:00');
 
 
-
 insert into tim (sifra,naziv,utakmica,liga,maksimalanbrojnavijaca,stadion)
 values (null,'Arsenal',2,1,20.200,'Santiago');
 
