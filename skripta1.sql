@@ -5,9 +5,7 @@ use firma;
 create table projekt(
     sifra int not null primary key auto_increment,
     naziv varchar(20) not null,
-    cijena decimal(18,2),
     datumpocetka datetime not null,
-    datumzavrsetka datetime
 );
 
 create table sudionik(
@@ -27,12 +25,14 @@ alter table sudionik add foreign key (programer) references programer(sifra);
 alter table sudionik add foreign key (projekt) references projekt(sifra);
 
 
+
+
 insert into projekt (sifra,naziv,datumpocetka)
 values (null,'Programiranje','2022-01-01 12:00:00');
 
 
-insert into programer (sifra,ime,prezime)
-values (null,'Marko','Mijatovic');
+insert into programer (sifra,ime,prezime,datumrodjednja,placa)
+values (null,'Marko','Mijatovic','1996-15-09',5.999);
 
 
 insert into sudionik (projekt,programer)
