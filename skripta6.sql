@@ -6,7 +6,6 @@ use galerija;
 create table izlozba(
 sifra int not null primary key auto_increment,
 naziv varchar(20) not null,
-datumodrzavanja datetime,
 vrsta varchar(15)
 
 );
@@ -53,8 +52,8 @@ alter table autor add foreign key (izlozba) references izlozba(sifra);
 
 
 
-insert  into izlozba (sifra,naziv,datumodrzavanja,vrsta)
-values (null,'Povijest','2022-10-10 10:00:00','Galerija');
+insert  into izlozba (sifra,naziv,vrsta)
+values (null,'Povijest','Galerija');
 
 
 
