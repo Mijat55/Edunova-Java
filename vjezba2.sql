@@ -23,5 +23,5 @@ where Population >=1000000
 and CountryCode not like 'A%'
 and name like 'A%'
 or name like 'B%'
-and ID >=1 
-and ID <=10;
+and ID <=1 
+and ID >=10;
