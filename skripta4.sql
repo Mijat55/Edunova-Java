@@ -88,7 +88,7 @@ values (null,'Marko','Mijatovic',4,'12345678912',true);
 
 
 insert into igrac (sifra,ime,prezime,tim,trener,datumrodjenja,oib,minutaigranja)
-values (null,'Pero','Peric',1,1,'1990-15-09','98765432198',65.30);
+values (null,'Pero','Peric',1,1,'1990-15-09','98765432198',65.30),(null,'Ivan','Ivic',1,1,'1996-15-09','9876543243',70.30),(null,'Mario','Martic',1,1,'1999-05-09','98265432198',88.30);
 
 
 insert into pozicija (sifra,naziv,igrac)
