@@ -65,4 +65,16 @@ values (100,'12356','Audi','Crvena',1,11),
 (103,'92567','Fiat','Crna',2,13),
 (104,'39543','Citroen','Crvena',3,12);
 
+#select * from vozac
+where oib like ('123%');
+
+#select * from putnik
+where ime ='Dado';
+
+#select * from vozac
+where sifra > 2 ;
+
+#select * from vozilo
+where vozac between 2 and 4;
+
 
