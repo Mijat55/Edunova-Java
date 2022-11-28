@@ -1,0 +1,35 @@
+
+#c:\xampp\mysql\bin\mysql -uroot<C:\Users\Marko\Downloads\edunovajp27.sql\skripta8.sql
+
+drop database if exists bolnica;
+create database bolnica;
+use bolnica;
+
+create table doktor(
+sifra int not null primary key auto_increment,
+ime varchar(15) not null,
+prezime varchar(20) not null,
+oib varchar(11),
+specijalizacija varchar(25) not null,
+sestra int not null,
+pacijent int not null
+
+);
+
+create table sestra(
+sifra int not null primary key auto_increment,
+ime varchar(15) not null,
+prezime varchar(20) not null,
+oib varchar(11)
+
+);
+
+create table pacijent(
+sifra int not null primary key auto_increment,
+ime varchar(15) not null,
+prezime varchar(20) not null,
+oib varchar(11),
+datumrodjednja datetime,
+oboljenje varchar(30) not null
+
+);
