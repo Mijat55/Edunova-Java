@@ -1,0 +1,120 @@
+#c:\xampp\mysql\bin\mysql -uroot<C:\Users\Marko\Downloads\edunovajp27.sql\skripta10.sql
+ 
+drop database if exists porodica;
+create database porodica;
+use porodica;
+
+create table sestra(
+    sifra int not null primary key,
+    introvertno bit,
+    haljina varchar(31),
+    maraka decimal(16,6),
+    hlace varchar(46),
+    narukvica int
+);
+
+create table zena(
+    sifra int not null primary key,
+    treciputa datetime,
+    hlace varchar(46),
+    kratkamajica varchar(31),
+    jmbag char(11),
+    bojaociju varchar(39),
+    haljina varchar(44),
+    sestra int
+);
+
+create table punac(
+    sifra int not null primary key,
+    ogrlica int,
+    gustoca decimal(14,9),
+    hlace varchar(41)
+);
+
+create table cura(
+    sifra int not null primary key,
+    novcica decimal(16,5),
+    gustoca decimal(18,6),
+    lipa decimal(13,10),
+    ogrlica int,
+    bojakose varchar(38),
+    suknja varchar(36),
+    punac int
+);
+
+create table muskarac(
+    sifra int not null primary key,
+    bojaociju varchar(50),
+    hlace varchar(30),
+    modelnaocala varchar(43),
+    maraka decimal(14,5),
+    zena int
+);
+
+create table mladic(
+    sifra int not null primary key,
+    suknja varchar(50),
+    kuna decimal(16,8),
+    drugiputa datetime,
+    asocijalno bit,
+    ekstroventno bit,
+    dukserica varchar(48),
+    muskarac int
+);
+
+create table svekar(
+    sifra int not null primary key,
+    bojaociju varchar(40),
+    prstena int,
+    dukserica varchar(41),
+    lipa decimal(13,8),
+    eura decimal(12,7),
+    majica varchar(35)
+);
+
+create table sestra_svekar(
+    sifra int not null primary key,
+    sestra int,
+    svekar int
+);
+
+
+alter table zena add foreign key (sestra) references sestra(sifra);
+alter table muskarac add foreign key (zena) references zena(sifra);
+alter table mladic add foreign key (muskarac) references muskarac(sifra);
+alter table cura add foreign key (punac) references punac(sifra);
+alter table sestra_svekar add foreign key (sestra) references sestra(sifra);
+alter table sestra_svekar add foreign key (svekar) references svekar(sifra);
+
+
+select * from muskarac;
+
+insert into muskarac (sifra,bojaociju,hlace,modelnaocala,maraka,zena)
+values (4,'zelena','teksas','armani',15.50,null),
+(2,'smedja','pamuk','rayban',18.50,null),
+(3,'plava','sintetika','diesel',10.40,null);
+
+select * from zena;
+
+insert into zena(sifra,hlace,kratkamajica,jmbag,bojaociju,haljina,sestra)
+values (11,'teksas','svilena','12345678912','zelena','cvijetici',null),
+(12,'teksas','svilena','12389678912','zelena','cvijetici',null),
+(13,'teksas','svilena','12345678452','zelena','cvijetici',null);
+
+select * from sestra_svekar;
+
+insert into sestra_svekar (sifra,sestra,svekar)
+values (111,null,null),
+(112,null,null),
+(113,null,null);
+
+
+select * from cura;
+
+update cura set gustoca =null 
+where gustoca ='15,77';
+
+
+select * from mladic;
+delete from mladic 
+where kuna <'15,78';
