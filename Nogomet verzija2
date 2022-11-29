@@ -1,0 +1,70 @@
+# c:\xampp\mysql\bin\mysql -uroot<C:\Users\Marko\Downloads\edunovajp28\skripta4.sql
+
+drop database if exists nogomet;
+create database nogomet;
+use nogomet;
+
+create table Liga(
+    sifra int not null primary key auto_increment,
+    naziv varchar(20) not null,
+    drzava varchar(20) not null
+    
+);
+
+create table Tim(
+    tim_sifra int not null primary key auto_increment,
+    naziv varchar(20) not null,
+    liga int not null
+);
+
+create table Utakmica(
+    utakmica_sifra int not null primary key auto_increment,
+    domaci_tim_sifra int not null,
+    gosti_tim_sifra int not null,
+    vrijemepocetka datetime not null,
+    maksimalanbrojnavijaca decimal(18,2)
+    
+   
+);
+
+create table Igrac(
+    sifra int not null primary key auto_increment,
+    ime varchar(10) not null,
+    prezime varchar (15) not null,
+    datumrodjenja datetime,
+    oib varchar(11),
+    trenutna_vrijednost decimal(18,2),
+    pozicija varchar(20)
+);
+
+create table Trener(
+    sifra int not null primary key auto_increment,
+    ime varchar(10) not null,
+    prezime varchar(15) not null,
+    oib varchar(11),
+    licenca boolean,
+    Tim int
+);
+
+create table statistika_igraca(
+    sifra int not null primary key auto_increment,
+    zuti_karton int,
+    crveni_karton int,
+    gol int,
+    asistancija int,
+    igrac int not null
+);
+
+create table igrac_utakmica(
+    sifra int not null primary key auto_increment,
+    igrac int not null,
+    utakmica_sifra int not null
+);
+
+alter table tim add foreign key (liga) references liga(sifra);
+alter table trener add foreign key (tim) references tim(Tim_sifra);
+alter table statistika_igraca add foreign key (igrac) references igrac(sifra);
+alter table igrac_utakmica add foreign key (igrac) references igrac(sifra);
+alter table igrac_utakmica add foreign key (utakmica_sifra) references utakmica(utakmica_sifra);
+alter table utakmica add foreign key (domaci_tim_sifra) references tim(tim_sifra);
+alter table utakmica add foreign key (gosti_tim_sifra) references tim(tim_sifra);
