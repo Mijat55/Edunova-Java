@@ -1,0 +1,35 @@
+# BAZA KNJIŽNICA
+
+# Izlistati sve naslove autora 
+# August Šenoa
+
+
+
+select b.naslov,c.naziv as mjesto,d.naziv as izdavac
+from autor a
+inner join katalog b on a.sifra=b.autor
+inner join mjesto c on c.sifra=b.mjesto
+inner join izdavac d on d.sifra=b.izdavac
+where a.ime='August' and a.prezime ='Šenoa';
+
+
+# nastavno na prethodni upit
+# Gdje je August izdao ove naslove?
+
+
+
+# nastavno na prethodni upit
+# Tko je izdao ove naslove?
+
+# Izlistajte imena i prezimena autora
+# čije knjige su izdane u mjestu 
+# koje počinje slovom A
+
+select a.ime,a.prezime,c.naziv
+from autor a 
+inner join katalog b on a.sifra=b.autor 
+inner join mjesto c on c.sifra=b.mjesto 
+where c.naziv like 'O%';
+
+update mjesto set naziv='Osijek'
+where naziv='osijek';
