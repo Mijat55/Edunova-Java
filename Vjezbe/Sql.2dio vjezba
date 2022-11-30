@@ -1,0 +1,38 @@
+#zadatak1
+select ime,prezime  from autor;
+
+#zadatak2
+select * from katalog
+where naslov like '%LJUB%';
+
+#zadatak3
+select * from mjesto
+where postanskiBroj >9999;
+
+#zadatak4
+select * from mjesto
+where sifra not between 1 and 3000;
+
+#zadatak5
+select * from mjesto
+where drzava like '%Hrvatska%'
+and naziv like 'O%';
+
+#zadatak6
+select * from autor
+where datumrodenja ='1980-12-07';
+
+#zadatak7
+select * from izdavac
+where aktivan =1
+and naziv like '%.';
+
+#zadatak8
+select * from izdavac
+where aktivan =0
+and sifra not in ('346','234','589');
+
+#zadatak9
+select * from katalog
+where sifra >3000
+or naslov like '%Ljubav%';
