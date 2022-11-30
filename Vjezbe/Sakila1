@@ -1,0 +1,40 @@
+# BAZA SAKILA
+
+# izlistajte sve glumce
+select * from actor;
+
+
+# Postoji li u bazi moj omiljeni glumac
+
+
+# unesite glumca Brad Pitt
+insert  into actor(first_name,last_name)
+values ('Christian','Bale');
+
+select * from actor 
+where first_name like 'Christian' and last_name like 'Bale';
+
+# U kojim je sve filmovima glumio 
+# BURT	POSEY
+select a.title as film 
+from film a
+inner join film_actor b on a.film_id = b.film_id 
+inner join actor c on c.actor_id = b.actor_id 
+where c.first_name ='BURT' and c.last_name ='POSEY';
+
+
+
+# Ispišite imena i prezimena kupaca
+# koji su posuđivali filmove
+# u kojima je glumio 
+# BURT	POSEY
+
+select f.first_name ,f.last_name 
+from actor a
+inner join film_actor b on a.actor_id = b.actor_id 
+inner join film c on c.film_id =b.film_id 
+inner join inventory d on d.film_id =c.film_id 
+inner join rental e on e.inventory_id =d.inventory_id
+inner join customer f on f.customer_id =e.customer_id 
+where a.first_name ='BURT' and a.last_name ='POSEY'
+order by last_name asc, 1 desc ;
