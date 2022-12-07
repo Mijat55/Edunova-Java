@@ -118,3 +118,19 @@ where gustoca ='15,77';
 select * from mladic;
 delete from mladic 
 where kuna <'15,78';
+
+select a.asocijalno,f.dukserica,b.hlace
+from mladic a
+inner join muskarac b on a.muskarac=b.sifra
+inner join zena c on c.sifra=b.zena
+inner join sestra d on d.sifra=c.sestra
+inner join sestra_svekar e on e.svekar=d.sifra
+inner join svekar f on f.sifra=e.sestra
+where c.hlace like ('%A') and d.haljina like ('%Ba')
+order by 2 desc;
+
+
+select a.haljina,a.maraka 
+from sestra a
+left join sestra_svekar b on a.sifra=b.sestra
+where b.sestra is null;
