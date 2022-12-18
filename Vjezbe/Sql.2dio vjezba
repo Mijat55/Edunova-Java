@@ -7,11 +7,11 @@ where naslov like '%LJUB%';
 
 #zadatak3
 select * from mjesto
-where postanskiBroj >9999;
+where postanskiBroj >999;
 
 #zadatak4
 select * from mjesto
-where sifra not between 1 and 3000;
+where sifra not between 1 and 300;
 
 #zadatak5
 select * from mjesto
